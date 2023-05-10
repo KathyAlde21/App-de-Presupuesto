@@ -1,6 +1,4 @@
 //console.log('probando');
-var arregloTablaPresupuesto = [];
-var arregloTablaGastos = [];
 
 function presupuestoUno() {
     //primer contenedor - presupuesto
@@ -40,6 +38,10 @@ function presupuestoUno() {
         var columnaPresupuesto = document.createElement('td');
         var columnaGasto = document.createElement('td');
         var columnaSaldo = document.createElement('td');
+        filaPresupuesto.setAttribute('id', 'filaPresupuesto');
+        columnaPresupuesto.setAttribute('id', 'columnaPresupuesto');
+        columnaGasto.setAttribute('id', 'columnaGasto');
+        columnaSaldo.setAttribute('id', 'columnaSaldo');
     
         filaPresupuesto.appendChild(columnaPresupuesto, columnaGasto, columnaSaldo);
         cuerpoTabla.appendChild(filaPresupuesto);  
@@ -105,9 +107,22 @@ function gastoUno() {
         var textoColumnaGasto = document.createTextNode(textoColumnaGasto.value);
         var columnaValor = document.createElement('td');
         var textoColumnaValor = document.createTextNode(textoColumnaValor.value);
+        var columnaEliminar = document.createElement('td');    
+        filaGasto.setAttribute('id', 'filaGasto');
+        columnaGasto.setAttribute('id', 'columnaGasto');
+        columnaValor.setAttribute('id', 'columnaValor');
+        columnaEliminar.setAttribute('id', 'columnaEliminar');
+
+        var basurero = document.createElement('img');
+            basurero.src = 'papelera.png';
+            basurero.onclick = function () {
+                this.closest('tr').remove();
+            }
+
         columnaGasto.appendChild(textoColumnaGasto);
         columnaValor.appendChild(textoColumnaValor)
-        filaGasto.appendChild(columnaGasto, columnaValor);    
+        filaGasto.appendChild(columnaGasto, columnaValor, columnaEliminar); 
+        columnaEliminar.appendChild(basurero);   
         cuerpoTablaDos.appendChild(filaGasto);
     }
     generaTablaGastos();
@@ -115,16 +130,28 @@ function gastoUno() {
 gastoUno();
 
 /* ----------- botones ----------------- */
+/*
+function botonesPresupuesto() {
+    /*
+    var presupuestoCalculo = document.querySelector('#btnPresupuesto');
+    var gastosCalculo = document.querySelector('#btnGasto');
+    var arregloTablaPresupuesto = [];
+    var arregloTablaGastos = [];
 
-function botonPresupuesto() {
+    var 
+
+
+
+
+    function Gasto() {
+
+    }
+    
     btnPresupuesto.addEventListener('click', function () {
         //arregloTablaPresupuesto
-        e.preventDefault(); //cancelo submit
-        var ingresaPresupuestoDos = document.querySelector('#ingresaPresupuestoDos');
+       // var ingresaPresupuestoDos = document.querySelector('#ingresaPresupuestoDos');
         //ingresaPresupuesto.innerHTML = '$' + '';
-
-        
-
+        document.getElementById('ingresaPresupuestoDos').innerHTML = '$' + '';
     });
 
     btnGasto.addEventListener('click', function () {
@@ -132,4 +159,4 @@ function botonPresupuesto() {
 
     });
 
-}
+}*/
