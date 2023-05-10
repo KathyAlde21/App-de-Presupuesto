@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Katherine Gomez Alderete">
+    <!-- icono web = favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/image/money-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>APP Presupuesto</title>
+
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="assets/image/dinero.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Presupuesto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav> 
+
+    <header>
+        <div class="container mt-3 text-center">
+            <h1><b>PRESUPUESTO APP</b></h1>
+        </div>
+    </header>
+ 
+    <main id="contenidoPrincipal">
+    <!-- contenedor uno - presupuesto -->
+        <div id="contenedorUno" class="container mt-3">
+            <div id="divPresupuesto" class="row">
+                <!-- columna Uno -->
+                <div id="colPresupuestoUno">
+                    <!-- <form id="datosPresupuesto">
+                        <div class="mb-3">
+                            <label id="ingresaPresupuestoUno" for="ingresaPresupuesto" class="form-label">Ingresa Tu Presupuesto</label>
+                            <input id="ingresaPresupuestoDos" type="number" class="form-control">
+                        </div>
+                        <button id="btnPresupuesto" type="submit" class="btn btn-primary">Calcular</button>
+                    </form> -->
+                </div>
+                <!-- resultado - columna Dos -->
+                <div id="colPresupuestoDos" class="col">
+                    <table id="tablaPresupuesto" class="table table-borderless">
+                        <thead>
+                            <tr>
+                            <th scope="col">PRESUPUESTO</th>
+                            <th scope="col">GASTOS</th>
+                            <th scope="col">SALDO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoTabla">
+                            <!-- <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>    
+            </div>
+        </div>
+
+    <!-- contenedor dos - gastos -->
+        <div id="contenedorDos" class="container mt-3">
+            <div id="divGasto" class="row">
+                <!-- columna Uno -->
+                <div id="colGastoUno">
+                    <!-- <form id="datosGasto">
+                        <div id="contenedorGastoUno" class="mb-3">
+                            <label id="nombreGastoUno" for="nombreGasto" class="form-label">Ingresa El Nombre Del Gasto</label>
+                            <input id="nombreGastoDos" type="text" class="form-control">
+                        </div>
+                        <div id="contenedorGastoDos" class="mb-3">
+                            <label id="cantidadGastoUno" for="cantidadGasto" class="form-label">Ingresa La Cantidad Del Gasto</label>
+                            <inputl id="cantidadGastoDos" type="number" class="form-control">
+                        </div>
+                        <button id="btnGasto" type="submit" class="btn btn-primary">Añadir Gasto</button>
+                    </form>     -->
+                </div>
+                <!-- resultado - columna Dos -->
+                <div id="colGastoDos" class="col">
+                    <table id="tablaGastos" class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">GASTO</th>
+                            <th scope="col">VALOR</th>
+                          </tr>
+                        </thead>
+                        <tbody id="cuerpoTablaDos">
+                          <!-- <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                          </tr> -->
+                        </tbody>
+                    </table>
+                </div>    
+            </div>
+        </div>
+    </main>
+ 
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>

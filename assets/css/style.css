@@ -1,0 +1,53 @@
+#datosPresupuesto{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(19, 146, 19);
+    background-color: rgb(194, 245, 228);
+    padding: 10px;
+    font-weight: 700;
+}
+
+#ingresaPresupuestoDos{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(19, 146, 19);
+    background-color: rgb(194, 245, 228);
+}
+
+#btnPresupuesto{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(19, 146, 19);
+    color: rgb(19, 146, 19);
+}
+
+#datosGasto{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(135, 6, 158);
+    background-color: rgb(241, 194, 245);
+    padding: 10px;
+    font-weight: 700;
+}
+
+#nombreGastoDos{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(135, 6, 158);
+    background-color: rgb(241, 194, 245);
+}
+
+#cantidadGastoDos{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(135, 6, 158);
+    background-color: rgb(241, 194, 245);
+}
+
+
+#btnGasto{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(135, 6, 158);
+    color: rgb(135, 6, 158);
+}
