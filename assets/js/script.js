@@ -130,33 +130,36 @@ function gastoUno() {
 gastoUno();
 
 /* ----------- botones ----------------- */
-/*
+
+
 function botonesPresupuesto() {
-    /*
-    var presupuestoCalculo = document.querySelector('#btnPresupuesto');
-    var gastosCalculo = document.querySelector('#btnGasto');
-    var arregloTablaPresupuesto = [];
-    var arregloTablaGastos = [];
+    
+    var  btnPresupuesto = document.querySelector('#btnPresupuesto');
+    var btnGasto = document.querySelector('#btnGasto');
+  //  var cuerpoTablaDos = document.querySelector('#cuerpoTablaDos');
+    var calculoGasto = [];
 
-    var 
-
-
-
-
-    function Gasto() {
-
+    function Gasto(nombre, monto) {
+        this.nombre = nombre;
+        this.monto = monto;
     }
     
     btnPresupuesto.addEventListener('click', function () {
-        //arregloTablaPresupuesto
-       // var ingresaPresupuestoDos = document.querySelector('#ingresaPresupuestoDos');
-        //ingresaPresupuesto.innerHTML = '$' + '';
-        document.getElementById('ingresaPresupuestoDos').innerHTML = '$' + '';
+        var ingresaPresupuesto = document.querySelector('#ingresaPresupuestoDos');
+        var presupuestoTabla = document.querySelector('#columnaPresupuesto');
+        presupuestoTabla.innerHTML = '$' + ingresaPresupuesto.value;
     });
 
     btnGasto.addEventListener('click', function () {
-        //arregloTablaGastos
+      //  var tablaGastos = document.querySelector('#datosGasto');
+        var gastoNombre = document.querySelector('#nombreGastoUno');
+        var gastoMonto = document.querySelector('#cantidadGastoUno');
+        var gasto = new Gasto(gastoNombre.value, gastoMonto.value);
+        calculoGasto.push(gasto);
+
+        gastoMonto.value = '';
+        gastoNombre.value = '';
 
     });
 
-}*/
+}
