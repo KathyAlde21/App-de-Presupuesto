@@ -51,3 +51,8 @@
     border-color: rgb(135, 6, 158);
     color: rgb(135, 6, 158);
 }
+
+#eliminar{
+    font-size:24px;
+    color: blue;
+}

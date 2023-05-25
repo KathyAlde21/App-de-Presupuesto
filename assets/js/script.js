@@ -30,25 +30,9 @@ function presupuestoUno() {
         });*/
         colPresupuestoUno.append(datosPresupuesto);
         datosPresupuesto.append(contenedorPresupuesto, btnPresupuesto);
-        contenedorPresupuesto.append(ingresaPresupuestoUno, ingresaPresupuestoDos); 
-
-    function generaTablaPresupuesto() { /* construyendo tabla columna dos */
-        var cuerpoTabla = document.querySelector('#cuerpoTabla');
-        var filaPresupuesto = document.createElement('tr');
-        var columnaPresupuesto = document.createElement('td');
-        var columnaGasto = document.createElement('td');
-        var columnaSaldo = document.createElement('td');
-        filaPresupuesto.setAttribute('id', 'filaPresupuesto');
-        columnaPresupuesto.setAttribute('id', 'columnaPresupuesto');
-        columnaGasto.setAttribute('id', 'columnaGasto');
-        columnaSaldo.setAttribute('id', 'columnaSaldo');
-    
-        filaPresupuesto.appendChild(columnaPresupuesto, columnaGasto, columnaSaldo);
-        cuerpoTabla.appendChild(filaPresupuesto);  
+        contenedorPresupuesto.append(ingresaPresupuestoUno, ingresaPresupuestoDos);     
+        
     }
-    generaTablaPresupuesto();
-    
-}
 presupuestoUno();
 
 /* ----------- segundo bloque - gastos ----------------- */
@@ -100,32 +84,6 @@ function gastoUno() {
         contenedorGastoUno.append(nombreGastoUno, nombreGastoDos);
         contenedorGastoDos.append(cantidadGastoUno, cantidadGastoDos);
 
-    function generaTablaGastos() { /* construyendo tabla columna dos */
-        var cuerpoTablaDos = document.querySelector('#cuerpoTablaDos');//tbody
-        var filaGasto = document.createElement('tr');
-        var columnaGasto = document.createElement('td');
-        var textoColumnaGasto = document.createTextNode(textoColumnaGasto.value);
-        var columnaValor = document.createElement('td');
-        var textoColumnaValor = document.createTextNode(textoColumnaValor.value);
-        var columnaEliminar = document.createElement('td');    
-        filaGasto.setAttribute('id', 'filaGasto');
-        columnaGasto.setAttribute('id', 'columnaGasto');
-        columnaValor.setAttribute('id', 'columnaValor');
-        columnaEliminar.setAttribute('id', 'columnaEliminar');
-
-        var basurero = document.createElement('img');
-            basurero.src = 'papelera.png';
-            basurero.onclick = function () {
-                this.closest('tr').remove();
-            }
-
-        columnaGasto.appendChild(textoColumnaGasto);
-        columnaValor.appendChild(textoColumnaValor)
-        filaGasto.appendChild(columnaGasto, columnaValor, columnaEliminar); 
-        columnaEliminar.appendChild(basurero);   
-        cuerpoTablaDos.appendChild(filaGasto);
-    }
-    generaTablaGastos();
 }
 gastoUno();
 
@@ -133,7 +91,6 @@ gastoUno();
 
 
 function botonesPresupuesto() {
-    
     var  btnPresupuesto = document.querySelector('#btnPresupuesto');
     var btnGasto = document.querySelector('#btnGasto');
   //  var cuerpoTablaDos = document.querySelector('#cuerpoTablaDos');
@@ -144,22 +101,104 @@ function botonesPresupuesto() {
         this.monto = monto;
     }
     
-    btnPresupuesto.addEventListener('click', function () {
+    btnPresupuesto.addEventListener('click', obtenerPresupuesto);
+    btnGasto.addEventListener('click', obtenerGastos); 
+    setInterval(calcularSaldo, 100);
+    
+    function obtenerPresupuesto(){
         var ingresaPresupuesto = document.querySelector('#ingresaPresupuestoDos');
         var presupuestoTabla = document.querySelector('#columnaPresupuesto');
         presupuestoTabla.innerHTML = '$' + ingresaPresupuesto.value;
-    });
+        ingresaPresupuesto.value = '$';
+    };
 
-    btnGasto.addEventListener('click', function () {
-      //  var tablaGastos = document.querySelector('#datosGasto');
-        var gastoNombre = document.querySelector('#nombreGastoUno');
-        var gastoMonto = document.querySelector('#cantidadGastoUno');
-        var gasto = new Gasto(gastoNombre.value, gastoMonto.value);
+    function obtenerGastos(){
+    //  var cuerpoTabla = document.querySelector('#cuerpoTabla');
+        var nombreGasto = document.querySelector('#nombreGastoDos');
+        var cantidadGasto = document.querySelector('#cantidadGastoDos');
+        var gasto = new Gasto(nombreGasto.value, cantidadGasto.value);
         calculoGasto.push(gasto);
 
-        gastoMonto.value = '';
-        gastoNombre.value = '';
+        //TABLA PRESUPUESTO
+        var cuerpoTabla = document.querySelector('#cuerpoTabla');
+        var filaPresupuesto = document.createElement('tr');
+        var columnaPresupuesto = document.createElement('td');
+        var columnaGasto = document.createElement('td');
+        var columnaSaldo = document.createElement('td');
+        
+        filaPresupuesto.setAttribute('id', 'filaPresupuesto');
+        columnaPresupuesto.setAttribute('id', 'columnaPresupuesto');
+        columnaGasto.setAttribute('id', 'columnaGasto');
+        columnaSaldo.setAttribute('id', 'columnaSaldo');
 
-    });
+        filaPresupuesto.appendChild(columnaPresupuesto, columnaGasto, columnaSaldo);
+        cuerpoTabla.appendChild(filaPresupuesto); 
+    
+        //TABLA GASTOS
+        var cuerpoTablaDos = document.querySelector('#cuerpoTablaDos');//tbody
+        var filaGasto = document.createElement('tr');
+        var columnaGasto = document.createElement('td');
+        var columnaValor = document.createElement('td');
+        var columnaEliminar = document.createElement('td');   
+        var iconoEliminar = document.createElement('i');
+
+        filaGasto.setAttribute('id', 'filaGasto');
+        columnaGasto.setAttribute('id', 'columnaGasto');
+        columnaValor.setAttribute('id', 'columnaValor');
+        columnaEliminar.setAttribute('id', 'columnaEliminar');
+        iconoEliminar.setAttribute('id', 'eliminar');
+        iconoEliminar.setAttribute('class', 'fas fa-trash-alt');
+    
+        columnaGasto.textContent = gasto.nombre;
+        columnaValor.textContent = '$' + parseFloat(gasto.monto);
+
+        cuerpoTablaDos.appendChild(filaGasto);
+        filaGasto.appendChild(columnaGasto, columnaValor, columnaEliminar); 
+        columnaEliminar.appendChild(iconoEliminar);   
+
+    ///
+        cantidadGasto.value = '';
+        nombreGasto.value = '';
+
+
+        ///validad que evento para eliminar gasto funciona
+        iconoEliminar.addEventListener('click', function () {
+            filaGasto.parentNode.removeChild(filaGasto);
+            calculoGasto.splice(calculoGasto.indexOf(gasto), 1);
+            calcularSaldo();
+        });        
+    }
+
+
+
+    const sumaGastos = () => {
+        let suma = 0;
+        for (let i = 0; i < calculoGasto.length; i++) {
+          suma += parseFloat(calculoGasto[i].monto);
+        }
+        return '$' + suma
+      };
+      
+    
+    function calcularSaldo() {
+        let presupuesto = document.querySelector('#columnaPresupuesto');
+        let gastos = document.querySelector('#columnaGasto');
+        let saldo = document.querySelector('#columnaSaldo');
+        let suma = parseFloat(sumaGastos().replace('$', ''));
+        gastos.innerHTML = '$' + suma
+        saldo.innerHTML = '$' + (parseFloat(presupuesto.innerHTML.replace('$', '')) - suma)
+      
+    
+        if (parseFloat(saldo.innerHTML.replace("$", "")) < 0) {
+            saldo.style.color = "red";
+          } else {
+            saldo.style.color = "green";
+          }
+        
+    
+
+};
+
 
 }
+  
