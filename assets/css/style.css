@@ -7,7 +7,7 @@
     font-weight: 700;
 }
 
-#ingresaPresupuestoDos{
+#presupuesto{
     border-style: solid;
     border-radius: 7px;
     border-color: rgb(19, 146, 19);
@@ -30,14 +30,14 @@
     font-weight: 700;
 }
 
-#nombreGastoDos{
+#nombreGasto{
     border-style: solid;
     border-radius: 7px;
     border-color: rgb(135, 6, 158);
     background-color: rgb(241, 194, 245);
 }
 
-#cantidadGastoDos{
+#cantidadGasto{
     border-style: solid;
     border-radius: 7px;
     border-color: rgb(135, 6, 158);

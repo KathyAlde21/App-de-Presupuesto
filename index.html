@@ -17,19 +17,13 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="assets/image/dinero.png" alt="" width="40" height="34" class="d-inline-block align-text-top">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand" href="#">
+                <img src="assets/image/dinero.png" alt="" width="45" height="24" class="d-inline-block align-text-top">
+                Tabla Cálculo de Presupuesto
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
     </nav> 
 
@@ -39,23 +33,23 @@
         </div>
     </header>
  
-    <main id="contenidoPrincipal">
+    <main>
     <!-- contenedor uno - presupuesto -->
-        <div id="contenedorUno" class="container mt-3">
-            <div id="divPresupuesto" class="row">
+        <div class="container mt-3">
+            <div class="row">
                 <!-- columna Uno -->
-                <div id="colPresupuestoUno">
-                    <!-- <form id="datosPresupuesto">
+                <div class="col">
+                    <form id="datosPresupuesto">
                         <div class="mb-3">
-                            <label id="ingresaPresupuestoUno" for="ingresaPresupuesto" class="form-label">Ingresa Tu Presupuesto</label>
-                            <input id="ingresaPresupuestoDos" type="number" class="form-control">
+                            <label for="presupuesto" class="form-label">Ingresa Tu Presupuesto</label>
+                            <input id="presupuesto" type="number" class="form-control">
                         </div>
-                        <button id="btnPresupuesto" type="submit" class="btn btn-primary">Calcular</button>
-                    </form> -->
+                        <button id="btnPresupuesto" type="submit" class="btn">Calcular</button>
+                    </form>
                 </div>
                 <!-- resultado - columna Dos -->
-                <div id="colPresupuestoDos" class="col">
-                    <table id="tablaPresupuesto" class="table table-borderless">
+                <div class="col">
+                    <table class="table table-borderless">
                         <thead>
                             <tr>
                             <th scope="col">PRESUPUESTO</th>
@@ -65,9 +59,9 @@
                         </thead>
                         <tbody id="cuerpoTabla">
                             <!-- <tr>
-                            <td id="columnaPresupuesto"></td>
-                            <td id="columnaGasto"></td>
-                            <td id="columnaSaldo"></td>
+                            <td id="presupuesto">presupuesto</td>
+                            <td id="gasto">gasto</td>
+                            <td id="saldo">saldo</td>
                             </tr> -->
                         </tbody>
                     </table>
@@ -76,25 +70,25 @@
         </div>
 
     <!-- contenedor dos - gastos -->
-        <div id="contenedorDos" class="container mt-3">
-            <div id="divGasto" class="row">
+        <div class="container mt-3">
+            <div class="row">
                 <!-- columna Uno -->
-                <div id="colGastoUno">
-                    <!-- <form id="datosGasto">
-                        <div id="contenedorGastoUno" class="mb-3">
-                            <label id="nombreGastoUno" for="nombreGasto" class="form-label">Ingresa El Nombre Del Gasto</label>
-                            <input id="nombreGastoDos" type="text" class="form-control">
+                <div class="col">
+                    <form id="datosGasto">
+                        <div class="mb-3">
+                            <label for="nombreGasto" class="form-label">Ingresa El Nombre Del Gasto</label>
+                            <input id="nombreGasto" type="text" class="form-control">
                         </div>
-                        <div id="contenedorGastoDos" class="mb-3">
-                            <label id="cantidadGastoUno" for="cantidadGasto" class="form-label">Ingresa La Cantidad Del Gasto</label>
-                            <inputl id="cantidadGastoDos" type="number" class="form-control">
+                        <div class="mb-3">
+                            <label for="cantidadGasto" class="form-label">Ingresa La Cantidad Del Gasto</label>
+                            <input id="cantidadGasto" type="number" class="form-control">
                         </div>
-                        <button id="btnGasto" type="submit" class="btn btn-primary">Añadir Gasto</button>
-                    </form>     -->
+                        <button id="btnGasto" type="submit" class="btn">Añadir Gasto</button>
+                    </form>    
                 </div>
                 <!-- resultado - columna Dos -->
-                <div id="colGastoDos" class="col">
-                    <table id="tablaGastos" class="table">
+                <div class="col">
+                    <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">GASTO</th>
@@ -102,10 +96,10 @@
                           </tr>
                         </thead>
                         <tbody id="cuerpoTablaDos">
-                          <!-- <tr id="">
-                            <td id="columnaGasto"></td>
-                            <td id="columnaValor"></td>
-                            <td id="columnaEliminar"></td>
+                          <!-- <tr id="tablaGastos">
+                            <td id="gasto">gasto</td>
+                            <td id="valor">valor</td>
+                            <td id="eliminar">papelera</td>
                           </tr> -->
                         </tbody>
                     </table>
@@ -115,8 +109,6 @@
     </main>
  
 
-    
-    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
