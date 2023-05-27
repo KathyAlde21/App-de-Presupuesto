@@ -38,31 +38,29 @@
         <div class="container mt-3">
             <div class="row">
                 <!-- columna Uno -->
-                <div class="col">
-                    <form id="datosPresupuesto">
-                        <div class="mb-3">
-                            <label for="presupuesto" class="form-label">Ingresa Tu Presupuesto</label>
-                            <input id="presupuesto" type="number" class="form-control">
-                        </div>
-                        <button id="btnPresupuesto" type="submit" class="btn">Calcular</button>
-                    </form>
+                <div class="col" id="datosPresupuesto">
+                    <div class="mb-3">
+                        <label for="presupuesto" class="form-label">Ingresa Tu Presupuesto</label>
+                        <input id="presupuesto" type="number" class="form-control" required>
+                    </div>
+                    <button id="btnPresupuesto" class="btn">Calcular</button>
                 </div>
                 <!-- resultado - columna Dos -->
                 <div class="col">
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                            <th scope="col">PRESUPUESTO</th>
-                            <th scope="col">GASTOS</th>
-                            <th scope="col">SALDO</th>
+                                <th scope="col">PRESUPUESTO</th>
+                                <th scope="col">GASTOS</th>
+                                <th scope="col">SALDO</th>
                             </tr>
                         </thead>
-                        <tbody id="cuerpoTabla">
-                            <!-- <tr>
-                            <td id="presupuesto">presupuesto</td>
-                            <td id="gasto">gasto</td>
-                            <td id="saldo">saldo</td>
-                            </tr> -->
+                        <tbody id="tablaPresupuesto">
+                            <tr id="filaPresupuesto">
+                                <td id="tdPresupuesto">$ 0</td>
+                                <td id="tdGasto">$ 0</td>
+                                <td id="tdSaldo">$ 0</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>    
@@ -73,34 +71,32 @@
         <div class="container mt-3">
             <div class="row">
                 <!-- columna Uno -->
-                <div class="col">
-                    <form id="datosGasto">
-                        <div class="mb-3">
-                            <label for="nombreGasto" class="form-label">Ingresa El Nombre Del Gasto</label>
-                            <input id="nombreGasto" type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="cantidadGasto" class="form-label">Ingresa La Cantidad Del Gasto</label>
-                            <input id="cantidadGasto" type="number" class="form-control">
-                        </div>
-                        <button id="btnGasto" type="submit" class="btn">Añadir Gasto</button>
-                    </form>    
+                <div class="col" id="datosGasto">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Ingresa El Nombre Del Gasto</label>
+                        <input id="nombre" type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidad" class="form-label">Ingresa La Cantidad Del Gasto</label>
+                        <input id="cantidad" type="number" class="form-control" required>
+                    </div>
+                    <button id="btnGasto" class="btn">Añadir Gasto</button>
                 </div>
                 <!-- resultado - columna Dos -->
                 <div class="col">
                     <table class="table">
                         <thead>
-                          <tr>
-                            <th scope="col">GASTO</th>
-                            <th scope="col">VALOR</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">GASTO</th>
+                                <th scope="col">VALOR</th>
+                            </tr>
                         </thead>
-                        <tbody id="cuerpoTablaDos">
-                          <!-- <tr id="tablaGastos">
-                            <td id="gasto">gasto</td>
-                            <td id="valor">valor</td>
-                            <td id="eliminar">papelera</td>
-                          </tr> -->
+                        <tbody id="tablaGasto">
+                            <tr id="filaGasto">
+                                <!-- <td></td>
+                                <td><b id="violeta"></b></td>
+                                <td><i id="iconoEliminar" class="fas fa-trash-alt"></i></td> -->
+                            </tr>
                         </tbody>
                     </table>
                 </div>    
