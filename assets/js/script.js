@@ -43,7 +43,7 @@ function gastosEnPantalla(){
     <tr id="filaGasto">
       <td>${miGasto.nombre}</td>
       <td><i id="fa" class="fa fa-usd"></i><b id="violeta">${miGasto.monto}</b></td>
-      <td onclick="eliminarGastos"><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
+      <td onclick="eliminarGastos()"><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
     </tr> `;
   }
   tbTablaPrepuesto.innerHTML = tdPresupuesto;
@@ -53,25 +53,12 @@ function gastosEnPantalla(){
 
 //asociado a segunda tabla - boton eliminar
 function eliminarGastos(){
+ // console.log('probando');
   let tr = document.querySelector('#filaGasto');
   tr.remove();
-  console.log(eliminarGastos);
+  //console.log(eliminarGastos);
+  
 }
-/*
-var iconoEliminar = document.querySelector('#iconoEliminar');
-function eliminarGastos(){
-  filaGasto.parentNode.removeChild(filaGasto);
-  saldoFront();//saldoFront es Saldo
-}*/
-/*
-function eliminarGastos(el){
-  document.getElementById('filaGasto').deleteRow(el);
-}*/
-/*
-function eliminarGastos(index){
-  $('#filaGasto' + index).remove();
-}*/
 
 btnPresupuesto.addEventListener('click', obtenerPresupuesto); //ok
 btnGasto.addEventListener('click', obtenerGasto); //ok
-//iconoEliminar.addEventListener('click', eliminarGastos);
