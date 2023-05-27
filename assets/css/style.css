@@ -18,7 +18,7 @@
     color: blue;
 }
 
-#tdGasto{
+#tdGasto, #violeta{
     color:blueviolet;
 }
 
@@ -63,4 +63,9 @@
 #iconoEliminar{
     font-size:110%;
     color: rgb(5, 176, 5);
+}
+
+#fa{
+    text-align: center;
+    padding-right: 8px;
 }

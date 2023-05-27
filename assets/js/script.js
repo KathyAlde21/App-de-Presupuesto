@@ -10,16 +10,17 @@ function Gasto(nombre, monto) {
     this.monto = monto;
 }
 
-function obtenerPresupuesto(){ //FUNCIONANDO
-  //  var tablaPresupuesto = document.querySelector('#tablaPresupuesto'); //tbody
-  // var filaPresupuesto = document.querySelector('#filaPresupuesto');
+//asociada a primer boton - ingresa presupuesto
+function obtenerPresupuesto(){
     var presupuestoFront = document.querySelector('#presupuesto');
-    var presupuestoTabla = document.querySelector('#tdPresupuesto'); //td presupuesto
+    var presupuestoTabla = document.querySelector('#tdPresupuesto');
     presupuesto = parseInt(presupuestoFront.value);
     console.log('mi presupuesto es: ' + presupuesto);
     presupuestoTabla.innerHTML = '$ ' + presupuesto;
 }
 
+//asociada a segundo boton
+//se suman los valores de tabla gasto y muestran en tabla presupuesto
 function obtenerGasto(){
   var nombreFront = document.querySelector('#nombre');
   var cantidadFront = document.querySelector('#cantidad');
@@ -28,6 +29,7 @@ function obtenerGasto(){
   gastosEnPantalla();
 }
 
+//asociada a segundo boton - creacion segunda tabla
 function gastosEnPantalla(){
   var tbTablaPrepuesto = document.querySelector('#tablaGasto');
   var gastosTotales = document.querySelector('#tdGasto');
@@ -35,28 +37,36 @@ function gastosEnPantalla(){
   var tdPresupuesto = '';
   var sumasGastos = 0;
   for (let miGasto of calculoGasto){
-    sumasGastos = '$ ' + (sumasGastos + miGasto.monto);
+    sumasGastos = sumasGastos + miGasto.monto;
     tdPresupuesto += 
     `
-    <tr>
+    <tr id="filaGasto">
       <td>${miGasto.nombre}</td>
-      <td><b id="violeta">${miGasto.monto}</b></td>
+      <td><i id="fa" class="fa fa-usd"></i><b id="violeta">${miGasto.monto}</b></td>
       <td><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
     </tr> `;
   }
   tbTablaPrepuesto.innerHTML = tdPresupuesto;
-  gastosTotales.innerHTML = sumasGastos;
-  saldoFront.innerHTML = '$ ' + (presupuesto - sumasGastos);
-
+  gastosTotales.innerHTML = '$ ' + sumasGastos;
+  saldoFront.innerHTML = presupuesto - sumasGastos;
 }
 
-function eliminarGastos{
-  var tdEliminar = document.querySelector('#iconoEliminar');
+//asociado a segunda tabla - boton eliminar
+var iconoEliminar = document.querySelector('#iconoEliminar');
 
+function eliminarGastos(){
+  filaGasto.parentNode.removeChild(filaGasto);
+  saldoFront();//saldoFront es Saldo
 }
+/*
+function eliminarGastos(el){
+  document.getElementById('filaGasto').deleteRow(el);
+}*/
+/*
+function eliminarGastos(index){
+  $('#filaGasto' + index).remove();
+}*/
 
 btnPresupuesto.addEventListener('click', obtenerPresupuesto); //ok
 btnGasto.addEventListener('click', obtenerGasto); //ok
-
-
-  
+//iconoEliminar.addEventListener('click', eliminarGastos);
