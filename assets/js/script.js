@@ -47,6 +47,7 @@ function gastosEnPantalla(){
       <td onclick="eliminarGastos()"><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
     </tr> `;
   }
+  //<td onclick="eliminarGastos()"><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
 
   tbTablaPrepuesto.innerHTML = tdPresupuesto; //presupuesto - primera tabla
   gastosTotales.innerHTML = '$ ' + sumasGastos; //suma gastos menos presupuesto - primera tabla
@@ -54,13 +55,20 @@ function gastosEnPantalla(){
 }
 
 //asociado a segunda tabla - boton eliminar
+
 function eliminarGastos(){
  // console.log('probando');
   let tr = document.querySelector('#filaGasto');
   tr.remove();
- // nuevoSaldo();
-  //console.log(eliminarGastos);
 }
-
+/*
+const tr = document.querySelector('#filaGasto');
+tr.addEventListener('click', eliminarGastos);
+function eliminarGastos(){
+  // console.log('eliminado');
+   tr.removeEventListener('click', eliminarGastos);
+}*/
+ 
 btnPresupuesto.addEventListener('click', obtenerPresupuesto); //ok
 btnGasto.addEventListener('click', obtenerGasto); //ok
+//tr.addEventListener('click', eliminarGastos)
