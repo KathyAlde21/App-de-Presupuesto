@@ -34,11 +34,14 @@ function gastosEnPantalla(){
   var tbTablaPrepuesto = document.querySelector('#tablaGasto');
   var gastosTotales = document.querySelector('#tdGasto'); //texto gasto - segunda tabla
   var saldoFront = document.querySelector('#tdSaldo'); //monto gasto - segunda tabla
+  var trFilaGasto = document.querySelector('#filaGasto'); //linea donde se crea el gasto
   var tdPresupuesto = ''; //presupuesto - primera tabla, se incrementa con cada línea
   var sumasGastos = 0;
+  var restaGasto = 0;
 
-  for (let miGasto of calculoGasto){ //viene de fx obtenerGasto
+  for (let miGasto of calculoGasto){ //calculoGasto viene de fx obtenerGasto
     sumasGastos = sumasGastos + miGasto.monto;
+    restaGasto = restaGasto - miGasto.monto;
     tdPresupuesto += 
     `
     <tr id="filaGasto">
@@ -47,11 +50,11 @@ function gastosEnPantalla(){
       <td onclick="eliminarGastos()"><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
     </tr> `;
   }
-  //<td onclick="eliminarGastos()"><i id="iconoEliminar" class="fas fa-trash-alt"></i></td>
 
   tbTablaPrepuesto.innerHTML = tdPresupuesto; //presupuesto - primera tabla
   gastosTotales.innerHTML = '$ ' + sumasGastos; //suma gastos menos presupuesto - primera tabla
   saldoFront.innerHTML = presupuesto - sumasGastos; //monto gasto - segunda tabla
+  trFilaGasto.innerHTML = presupuesto - restaGasto;
 }
 
 //asociado a segunda tabla - boton eliminar
@@ -61,6 +64,8 @@ function eliminarGastos(){
   let tr = document.querySelector('#filaGasto');
   tr.remove();
 }
+
+
 /*
 const tr = document.querySelector('#filaGasto');
 tr.addEventListener('click', eliminarGastos);
@@ -68,7 +73,7 @@ function eliminarGastos(){
   // console.log('eliminado');
    tr.removeEventListener('click', eliminarGastos);
 }*/
- 
+
 btnPresupuesto.addEventListener('click', obtenerPresupuesto); //ok
 btnGasto.addEventListener('click', obtenerGasto); //ok
 //tr.addEventListener('click', eliminarGastos)
